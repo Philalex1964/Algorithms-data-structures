@@ -38,27 +38,29 @@ int calculateSquareEquation(int a, int b, int c, float* x1, float* x2) {
 int spellAge(int age, int n) {
     n = age%10;
     if (n == 1 && (age != 11 && age !=111)) {
-        
-        printf("%d \n", age);
         return 1;
-        
-        
     } else if (n >=2 && n <= 4 && (age < 5 || age > 14) && (age < 105 || age > 114)) {
-        
-       printf("%d \n", age);
         return 2;
-        
     } else {
-        
-        printf("%d \n", age);
         return 5;
     }
 }
 
+int compareColour(int h1, int h2, int v1, int v2){
+    if (((h1 + v1) % 2 == (h2 + v2) % 2) && ((h1 + v1) % 2 == 0))  {
+        return 1;
+    } else if (((h1 + v1) % 2 == (h2 + v2) % 2) && ((h1 + v1) % 2 != 0)) {
+        return 2;
+    } else if ((h1 + v1) % 2 != (h2 + v2) % 2) {
+        return 3;
+    }
+    return 0;
+}
+
 
 int main(int argc, const char * argv[]) {
-    // 1. Рассчитать и вывести индекс массы тела по формуле I = m / (h * h), где m – масса тела в килограммах, h – рост в метрах.
-    
+//    // 1. Рассчитать и вывести индекс массы тела по формуле I = m / (h * h), где m – масса тела в килограммах, h – рост в метрах.
+//
 //    float i, m, h;
 //
 //    printf("This program will calculate Body Mass Index (BMI)");
@@ -100,43 +102,74 @@ int main(int argc, const char * argv[]) {
 //            printf("Exceptional answer: %d", result);
 //
 //    }
+//
+//
+//
+//// 3. Ввести возраст человека (от 1 до 150 лет) и вывести его вместе со словом «год», «года» или «лет».
+//
+//    int age;
+//    int n;
+//
+//    printf("\n Введите ваш возраст цифрами: ");
+//    scanf("%d", &age);
+//
+//    int enteredAge = spellAge(age, n);
+//
+//    if (age > 0 && age <= 150) {
+//        switch (enteredAge) {
+//            case 1:
+//                printf("Ваш возраст - %d год.", age);
+//                break;
+//            case 2:
+//                printf("Ваш возраст - %d годa.", age);
+//                break;
+//            case 5:
+//                printf("Ваш возраст - %d лет.", age);
+//                break;
+//        }
+//    } else {
+//        printf("Люди столько не живут.");
+//    }
     
+ // 4. Даны числовые координаты двух полей шахматной доски (h1, v1, h2, v2). Требуется определить, относятся ли к поля к одному цвету или нет.
     
+    printf("\n");
+    int h1, v1, h2, v2;
     
-// 3. Ввести возраст человека (от 1 до 150 лет) и вывести его вместе со словом «год», «года» или «лет».
+    printf("Эта программа определяет: относятся ли поля шахматной доски к одному цвету.");
+    printf("\n Введите h1 - цифры от 1 до 8: ");
+    scanf("%d", &h1);
+    printf("\n Введите v1 - цифры от 1 до 8: ");
+    scanf("%d", &v1);
+    printf("\n Введите h2 - цифры от 1 до 8: ");
+    scanf("%d", &h2);
+    printf("\n Введите v2 - цифры от 1 до 8: ");
+    scanf("%d", &v2);
     
-    int age;
-    int n;
-    
-    printf("\n Введите ваш возраст цифрами: ");
-    scanf("%d", &age);
-    
-    int enteredAge = spellAge(age, n);
-    
-    if (age > 0 && age <= 150) {
-        switch (enteredAge) {
+    int check = compareColour(h1, h2, v1, v2);
+    if (h1 <= 8 && v1 <= 8 && h2 <= 8 && v2 <= 8) {
+        switch (check) {
             case 1:
-                printf("Ваш возраст - %d год.", age);
+                printf("Цвет клеток совпадает - черный!");
                 break;
             case 2:
-                printf("Ваш возраст - %d годa.", age);
+                printf("Цвет клеток совпадает - белый!");
                 break;
-            case 5:
-                printf("Ваш возраст - %d лет.", age);
+            case 3:
+                printf("Цвет клеток не совпадает!");
                 break;
-            default:
-                printf("Ошибочка вышла.");
-                printf("\n");
         }
     } else {
-        printf("Люди столько не живут.");
+        printf("Введены неверные координаты клеток!");
     }
-
-    
- 
     
     
- // 4. Даны числовые координаты двух полей шахматной доски (x1, y1, x2, y2). Требуется определить, относятся ли к поля к одному цвету или нет.
+    
+    
+    
+    
+    
+    
     
     
     
