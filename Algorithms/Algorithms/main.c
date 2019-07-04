@@ -39,17 +39,18 @@ int spellAge(int age, int n) {
     n = age%10;
     if (n == 1 && (age != 11 && age !=111)) {
         
-        printf("%d 1\n", age);
+        printf("%d \n", age);
         return 1;
         
-    } else if (n >=2 && n <= 4 && (age < 5 || age > 114)) {
         
-       printf("%d 2\n", age);
+    } else if (n >=2 && n <= 4 && (age < 5 || age > 14) && (age < 105 || age > 114)) {
+        
+       printf("%d \n", age);
         return 2;
         
     } else {
         
-        printf("%d 5\n", age);
+        printf("%d \n", age);
         return 5;
     }
 }
@@ -109,22 +110,26 @@ int main(int argc, const char * argv[]) {
     
     printf("\n Введите ваш возраст цифрами: ");
     scanf("%d", &age);
-   
+    
     int enteredAge = spellAge(age, n);
+    
     if (age > 0 && age <= 150) {
         switch (enteredAge) {
             case 1:
                 printf("Ваш возраст - %d год.", age);
+                break;
             case 2:
                 printf("Ваш возраст - %d годa.", age);
+                break;
             case 5:
                 printf("Ваш возраст - %d лет.", age);
-//            default:
-//                printf("Ошибочка вышла.");
-//                printf("\n");
-//        } else {
-//            printf("Люди столько не живут.")
+                break;
+            default:
+                printf("Ошибочка вышла.");
+                printf("\n");
         }
+    } else {
+        printf("Люди столько не живут.");
     }
 
     
