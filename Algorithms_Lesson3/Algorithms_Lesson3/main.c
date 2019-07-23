@@ -85,19 +85,20 @@ int linearSearch(int* arr, int len, int v) {
 }
 
 // 3. Рекурсивное решение задачи линейного поиска
-int linearSearchRecursive(int* arr, int len, int i, int v) {
+int linearSearchRecursive(int* arr, int len, int v) {
+    
     if (arr[i] == v) {
         return i;
     } else {
-        return (linearSearchRecursive(arr,len,i+1,v));
-    }
+//return (linearSearchRecursive(arr,len,i+1,v));
+    //}
     return -1;
+    }
 }
 
 int main(int argc, const char** argv) {
     const int SIZE = 30;
     int arr[SIZE];
-    int i;
     fillArray(arr, SIZE);
     printArray(arr, SIZE);
     // bubbleSort(arr, SIZE);
@@ -105,7 +106,7 @@ int main(int argc, const char** argv) {
     printArray(arr, SIZE);
     //    printf("%d", linearSearch(arr, SIZE, 75));
     //    puts("");
-    printf("%d", linearSearchRecursive(arr, SIZE, i, 78));
+    printf("%d", linearSearchRecursive(arr, SIZE, 74));
     puts("");
     return 0;
 }
